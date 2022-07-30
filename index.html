@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link rel="stylesheet" href="style.css">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet"/>
+</head>
+  <body>
+      <form name="take_donation">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="form-outline mb-4">
+            <input type="text" id="name" name="name" class="form-control" />
+            <label class="form-label"  for="name">Name</label>
+          </div>
+          
+      
+       
+    
+
+       
+      
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="email" name="email" class="form-control" />
+          <label class="form-label" for="email">Email</label>
+        </div>
+      
+        <!-- Number input -->
+        <div class="form-outline mb-4">
+          <input type="number" id="number"  name="number" class="form-control" />
+          <label class="form-label" for="number">Phone</label>
+        </div>
+        
+
+ <!--city -->
+ <div class="form-outline mb-4">
+    <input type="text" id="Country" name="Country" class="form-control" />
+  <label class="form-label" for="Country">Country </label>
+</div>
+
+         <!-- Text input -->
+         <div class="form-outline mb-4">
+            <input type="text" id="streem"  name="streem" class="form-control" />
+            <label class="form-label" for="streem">Stream eg- Skill India,Education etc</label>
+          </div>
+        
+      <!--Amount Required -->  
+      <div class="form-outline mb-4">
+        <input type="number" id="amount" name="amount" class="form-control" />
+        <label class="form-label" for="amount">Required Amounnt </label>
+      </div>
+
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+          <label class="form-label" for="message">Describe your problem for taking donation in any language... </label>
+        </div>
+      
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+      </form>
+
+<!--       -->      
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js" ></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyW8AVyciOgIJUYhblzKjY2IHqFhuVcb1ifagFWqVUDEml5nBc7-9e1e6cNKlBMoyt9Qw/exec'
+        const form = document.forms['take_donation']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+  </body>
+</html>
